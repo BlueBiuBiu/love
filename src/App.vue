@@ -1,30 +1,37 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="app">
+    <div class="meteor">
+      <meteor />
+    </div>
+    <router-view></router-view>
   </div>
-  <router-view />
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { defineComponent } from "vue"
+import Meteor from "@/base-ui/meteor/meteor.vue"
 
-#nav {
-  padding: 30px;
+export default defineComponent({
+  name: "App",
+  components: {
+    Meteor
+  }
+})
+</script>
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+<style lang="less" scoped>
+.app {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  .meteor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
   }
 }
 </style>
